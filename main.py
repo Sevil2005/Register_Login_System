@@ -25,7 +25,7 @@ def checking_name(name):
 def checking_surname(surname):
     while surname.isalpha()==False:
         print("Soyadınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
-        surname = input("Soyadınızı daxil edin: "
+        surname = input("Soyadınızı daxil edin: ")
 
 
 def checking_email(email):
