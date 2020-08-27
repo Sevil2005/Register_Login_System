@@ -3,7 +3,7 @@
 student = []
 
 
-class createStudent:
+class Student:
     def __init__(self, name, surname, email, telNumber, password):
         self.name = name
         self.surname = surname
@@ -89,7 +89,7 @@ def registering_system():
             checking_telNumber(telNumber)
             password = input("Şifrənizi yazın: ")
             checking_password(password)
-            s = createStudent(_name, _surname, _email, _telNumber, _password)
+            s = Student(_name, _surname, _email, _telNumber, _password)
             student.append(s)
     else:
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
