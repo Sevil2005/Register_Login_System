@@ -11,65 +11,39 @@ class Student:
         self.telNumber = telNumber
         self.password = password
 
-    def show(self):
+    def show(self,a):
         print(
             f"Tələbə{a} adı : {self.name} / soyadı: {self.surname} / email: {self.email} / telefon nömrəsi: +994{self.telNumber}.")
 
 
 def checking_name(name):
-    global _name
-    while True:
-        if name.isalpha():
-            _name = name
-            break
-        else:
-            print("Adınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
-            name = input("Adınızı daxil edin: ")
+    while name.isalpha()==False:
+        print("Adınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
+        name = input("Adınızı daxil edin: ")
 
-
+        
 def checking_surname(surname):
-    global _surname
-    while True:
-        if surname.isalpha():
-            _surname = surname
-            break
-        else:
-            print("Soyadınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
-            surname = input("Soyadınızı daxil edin: ")
+    while surname.isalpha()==False:
+        print("Soyadınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
+        surname = input("Soyadınızı daxil edin: "
 
 
 def checking_email(email):
-    global _email
-    while True:
-        if "@" in email:
-            _email = email
-            break
-        else:
-            print("Düzgün email adresi daxil edin!")
-            email = input("Email adresinizi daxil edin: ")
+    while "@" not in email:
+        print("Düzgün email adresi daxil edin!")
+        email = input("Email adresinizi daxil edin: ")
 
-
+            
 def checking_telNumber(telNumber):
-    global _telNumber
-    while True:
-        if telNumber.isdigit() and len(telNumber) == 9:
-            _telNumber = telNumber
-            break
-        else:
-            print("Əlaqə nömrəniz 9 rəqəmli olmalıdır!(nümunə:501234567)")
-            telNumber = input("Əlaqə nömrənizi daxil edin: +994")
-
+    while telNumber.isdigit()==False or len(telNumber) =! 9:
+        print("Əlaqə nömrəniz 9 rəqəmli olmalıdır!(nümunə:501234567)")
+        telNumber = input("Əlaqə nömrənizi daxil edin: +994")
+                       
 
 def checking_password(password):
-    global _password
-    while True:
-        if password.isdigit() and len(password) == 3:
-            print("Qeydiyyatınız uğurla başa çatdı!")
-            _password = password
-            break
-        else:
-            print("Şifrə 3 rəqəmli ədəd olmalıdır!")
-            password = input("Şifrənizi yazın: ")
+    while password.isdigit()==False or len(password) =! 3
+        print("Şifrə 3 rəqəmli ədəd olmalıdır!")
+        password = input("Şifrənizi yazın: ")
 
 # Tələbənin datalarının daxil edilmə prosesi:
 
@@ -89,7 +63,7 @@ def registering_system():
             checking_telNumber(telNumber)
             password = input("Şifrənizi yazın: ")
             checking_password(password)
-            s = Student(_name, _surname, _email, _telNumber, _password)
+            s = Student(name, surname, email, telNumber, password)
             student.append(s)
     else:
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
@@ -114,19 +88,15 @@ def showData(student_name):
             print(user.telNumber)
             i += 1
             break
-        else:
-            pass
     else:
         print("Bu adda tələbə yoxdu!")
 
 
 # Tələbələrin siyahısının göstərilmə funksiyası:
 
-a = 1
-
 
 def show_data():
-    global a
+    a=1
     for user in student:
         user.show()
         a += 1
@@ -196,8 +166,6 @@ def changeData(student_psw):
 
             showData(new_name)
             break
-        else:
-            pass
     else:
         print("Sistemdə bu kodlu tələbə yoxdur!")
 
@@ -210,8 +178,6 @@ def deleteData(student_psw):
             student.remove(user)
             print("Daxil edilən koda uyğun tələbənin dataları sistemdən silindi!")
             break
-        else:
-            pass
     else:
         print("Sistemdə bu kodlu tələbə yoxdur!")
 
