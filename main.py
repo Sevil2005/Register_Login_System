@@ -35,13 +35,13 @@ def checking_email(email):
 
             
 def checking_telNumber(telNumber):
-    while telNumber.isdigit()==False or len(telNumber) =! 9:
+    while telNumber.isdigit()==False or len(telNumber) != 9:
         print("Əlaqə nömrəniz 9 rəqəmli olmalıdır!(nümunə:501234567)")
         telNumber = input("Əlaqə nömrənizi daxil edin: +994")
                        
 
 def checking_password(password):
-    while password.isdigit()==False or len(password) =! 3
+    while password.isdigit()==False or len(password) != 3
         print("Şifrə 3 rəqəmli ədəd olmalıdır!")
         password = input("Şifrənizi yazın: ")
 
