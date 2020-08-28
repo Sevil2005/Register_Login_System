@@ -59,52 +59,39 @@ def deleteData(student_psw):
 def changeData(student_psw):
     for user in student:
         if student_psw == user.password:
-            while True:
+            new_name = input("Yeni adınızı daxil edin: ")
+            while new_name.isalpha() == False:
+                print(
+                    "Adınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
                 new_name = input("Yeni adınızı daxil edin: ")
-                if new_name.isalpha():
-                    user.name = new_name
-                    break
-                else:
-                    print(
-                        "Adınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
+            user.name = new_name
 
-            while True:
+            new_surname = input("Yeni soyadınızı daxil edin: ")
+            while new_surname.isalpha() == False:
+                print(
+                    "Soyadınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
                 new_surname = input("Yeni soyadınızı daxil edin: ")
-                if new_surname.isalpha():
-                    user.surname = new_surname
-                    break
-                else:
-                    print(
-                        "Soyadınızda ancaq əlifbanın hərflərindən istifadə edə bilərsiz!")
+            user.surname = new_surname
 
-            while True:
+            new_email = input("Yeni email adresinizi daxil edin: ")
+            while "@" not in new_email:
+                print("Yeni emailiniz standartlara uyğun deyil!")
                 new_email = input("Yeni email adresinizi daxil edin: ")
-                if "@" in new_email:
-                    user.email = new_email
-                    break
-                else:
-                    print("Yeni emailiniz standartlara uyğun deyil!")
+            user.email = new_email
 
-            while True:
+            new_telNumber = input("Yeni əlaqə nömrənizi daxil edin: +994")
+            while new_telNumber.isdigit() == False and len(new_telNumber) != 9:
+                print("Əlaqə nömrəniz 9 rəqəmli olmalıdır!(nümunə:501234567)")
                 new_telNumber = input("Yeni əlaqə nömrənizi daxil edin: +994")
-                if new_telNumber.isdigit() and len(new_telNumber) == 9:
-                    user.telNumber = new_telNumber
-                    break
-                else:
-                    print("Əlaqə nömrəniz 9 rəqəmli olmalıdır!(nümunə:501234567)")
+            user.telNumber = new_telNumber
 
-            while True:
+            new_password = input("Yeni şifrənizi yazın: ")
+            while new_password.isdigit() == False and len(new_password) != 3:
+                print("Şifrə 3 rəqəmli ədəd olmalıdır!")
                 new_password = input("Yeni şifrənizi yazın: ")
-                if new_password.isdigit() and len(new_password) == 3:
-                    user.password = new_password
-                    print("Qeydiyyatınız uğurla başa çatdı!")
-                    break
-                else:
-                    print("Şifrə 3 rəqəmli ədəd olmalıdır!")
-
+            user.password = new_password
+            print("Qeydiyyatınız uğurla başa çatdı!")
             showData(new_name)
             break
-        else:
-            pass
     else:
         print("Sistemdə bu kodlu tələbə yoxdur!")
