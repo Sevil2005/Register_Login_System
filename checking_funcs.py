@@ -36,3 +36,4 @@ def checking_password(password):
         print("Şifrə 3 rəqəmli ədəd olmalıdır!")
         password = input("Şifrənizi yazın: ")
     _password = password
+    print("Qeydiyyatınız uğurla başa çatdı!")
