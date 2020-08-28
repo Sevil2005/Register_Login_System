@@ -6,7 +6,7 @@ import checking_funcs
 student = []
 
 
-class createStudent:
+class Student:
     def __init__(self, name, surname, email, telNumber, password):
         self.name = name
         self.surname = surname
@@ -14,7 +14,7 @@ class createStudent:
         self.telNumber = telNumber
         self.password = password
 
-    def show(self):
+    def show(self,a):
         print(
             f"Tələbə{a} adı : {self.name} / soyadı: {self.surname} / email: {self.email} / telefon nömrəsi: +994{self.telNumber}.")
 
@@ -37,12 +37,12 @@ def registering_system():
             checking_telNumber(telNumber)
             password = input("Şifrənizi yazın: ")
             checking_password(password)
-            s = createStudent(_name, _surname, _email, _telNumber, _password)
+            s = Student(_name, _surname, _email, _telNumber, _password)
             student.append(s)
     else:
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
 
-    print("Tələbələrin datalarının sistemə yerləşdirilmə prosesi sona çatdı!")
+print("Tələbələrin datalarının sistemə yerləşdirilmə prosesi sona çatdı!")
 
 
 registering_system()
@@ -70,11 +70,9 @@ def showData(student_name):
 
 # Tələbələrin siyahısının göstərilmə funksiyası:
 
-a = 1
-
 
 def show_data():
-    global a
+    a=1
     for user in student:
         user.show()
         a += 1
