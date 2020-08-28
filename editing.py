@@ -14,7 +14,7 @@ class Student:
         self.telNumber = telNumber
         self.password = password
 
-    def show(self,a):
+    def show(self, a):
         print(
             f"Tələbə{a} adı : {self.name} / soyadı: {self.surname} / email: {self.email} / telefon nömrəsi: +994{self.telNumber}.")
 
@@ -28,19 +28,21 @@ def registering_system():
         n = int(n)
         for _ in range(0, n):
             name = input("Adınızı daxil edin: ")
-            checking_name(name)
+            checking_funcs.checking_name(name)
             surname = input("Soyadınızı daxil edin: ")
-            checking_surname(surname)
+            checking_funcs.checking_surname(surname)
             email = input("Email adresinizi daxil edin: ")
-            checking_email(email)
+            checking_funcs.checking_email(email)
             telNumber = input("Əlaqə nömrənizi daxil edin: +994")
-            checking_telNumber(telNumber)
+            checking_funcs.checking_telNumber(telNumber)
             password = input("Şifrənizi yazın: ")
-            checking_password(password)
-            s = Student(_name, _surname, _email, _telNumber, _password)
+            checking_funcs.checking_password(password)
+            s = Student(checking_funcs._name, checking_funcs._surname,
+                        checking_funcs._email, checking_funcs._telNumber, checking_funcs._password)
             student.append(s)
     else:
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
+
 
 print("Tələbələrin datalarının sistemə yerləşdirilmə prosesi sona çatdı!")
 
@@ -72,9 +74,9 @@ def showData(student_name):
 
 
 def show_data():
-    a=1
+    a = 1
     for user in student:
-        user.show()
+        user.show(a)
         a += 1
 
 # Bütün tələbə məlumatlarının göstərilmə funksiyası:
