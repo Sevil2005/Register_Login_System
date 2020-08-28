@@ -1,6 +1,3 @@
-from editing import registering_system
-
-
 def checking_name(name):
     global _name
     while True:
