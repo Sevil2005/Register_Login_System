@@ -25,7 +25,8 @@ def registering_system():
     n = input("Ümumi tələbə sayını daxil edin: ")
     if n.isdigit():
         n = int(n)
-        for _ in range(0, n):
+        for x in range(1, n+1):
+            print(f"Tələbə{x} məlumatlarını daxil edin =>")
             name = input("Adınızı daxil edin: ")
             checking_funcs.checking_name(name)
             surname = input("Soyadınızı daxil edin: ")
@@ -43,21 +44,20 @@ def registering_system():
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
 
 
+registering_system()
 print("Tələbələrin datalarının sistemə yerləşdirilmə prosesi sona çatdı!")
 
 
-registering_system()
-
-
 # Outputda görmək istədiyiniz əmrlərin verilməsi:
-for i in range(100):
-    command = input('''Həyata keçirmək istədiyiniz funksionallığa uyğun rəqəmi daxil edin:
-                    Tələbərin ümumi siyahısını görmək istəyirsinizsə-1
-                    Hansısa tələbənin datasını əldə etmək istəyirsizsə-2
-                    Bütün tələbələrin datasını əldə etmək istəyirsizsə-3
-                    Hansısa tələbənin datasını dəyişmək istəyirsizsə-4
-                    Hansısa tələbənin datasını sistemdən silmək istəyirsizsə-5 
+command = input('''Həyata keçirmək istədiyiniz funksionallığa uyğun rəqəmi daxil edin:
+                    Tələbələrin ümumi siyahısını görmək istəyirsinizsə => 1
+                    Hansısa tələbənin datasını əldə etmək istəyirsizsə => 2
+                    Bütün tələbələrin datasını əldə etmək istəyirsizsə => 3
+                    Hansısa tələbənin datasını dəyişmək istəyirsizsə => 4
+                    Hansısa tələbənin datasını sistemdən silmək istəyirsizsə => 5
+                    Əgər sistemdən çixmaq istəyirsinizsə bunu yazın => exit  
                     ==>''')
+while command != "exit":
     if command == "1":
         additional_funcs.show_data()
     elif command == "2":
@@ -82,3 +82,12 @@ for i in range(100):
         additional_funcs.deleteData(psw_input)
     else:
         print("Belə funksionallıq yoxdur!Əldə etmək istədiyiniz məlumatlara uyğun düzgün ədədi daxil edin!")
+
+    command = input('''Həyata keçirmək istədiyiniz funksionallığa uyğun rəqəmi daxil edin:
+                    Tələbələrin ümumi siyahısını görmək istəyirsinizsə => 1
+                    Hansısa tələbənin datasını əldə etmək istəyirsizsə => 2
+                    Bütün tələbələrin datasını əldə etmək istəyirsizsə => 3
+                    Hansısa tələbənin datasını dəyişmək istəyirsizsə => 4
+                    Hansısa tələbənin datasını sistemdən silmək istəyirsizsə => 5
+                    Əgər sistemdən çixmaq istəyirsinizsə bunu yazın => exit  
+                    ==>''')
