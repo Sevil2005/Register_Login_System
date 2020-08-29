@@ -2,7 +2,7 @@ import checking_funcs
 import additional_funcs
 import json
 
-# Tələbə class-ının yaradılması və listə yığılması:
+# Tələbə məlumatlarının dict-ə yığılması və 'student_db.json' faylına köçürülməsi:
 
 
 class dictGenerator(dict):
@@ -25,6 +25,9 @@ def createDict(_name, _surname, _email, _telNumber, _password):
     innerDict.addKeyValue('telNumber', _telNumber)
     innerDict.addKeyValue('password', _password)
     return innerDict
+
+
+# Tələbə class-ının yaradılması və listə yığılması:
 
 
 class Student:
