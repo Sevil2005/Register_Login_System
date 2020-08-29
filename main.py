@@ -1,8 +1,30 @@
 import checking_funcs
 import additional_funcs
-
+import json
 
 # Tələbə class-ının yaradılması və listə yığılması:
+
+
+class dictGenerator(dict):
+    def __init__(self):
+        self = dict()
+
+    def addKeyValue(self, key, value):
+        self[key] = value
+
+
+data = dictGenerator()
+data.addKeyValue('students', [])
+
+
+def createDict(_name, _surname, _email, _telNumber, _password):
+    innerDict = dictGenerator()
+    innerDict.addKeyValue('name', _name)
+    innerDict.addKeyValue('surname', _surname)
+    innerDict.addKeyValue('email', _email)
+    innerDict.addKeyValue('telNumber', _telNumber)
+    innerDict.addKeyValue('password', _password)
+    return innerDict
 
 
 class Student:
@@ -40,13 +62,16 @@ def registering_system():
             s = Student(checking_funcs._name, checking_funcs._surname,
                         checking_funcs._email, checking_funcs._telNumber, checking_funcs._password)
             additional_funcs.student.append(s)
+            data['students'].append(createDict(checking_funcs._name, checking_funcs._surname,
+                                               checking_funcs._email, checking_funcs._telNumber, checking_funcs._password))
     else:
         print("Tələbə sayı rəqəm vəya ədəd olmalıdır!")
 
 
 registering_system()
 print("Tələbələrin datalarının sistemə yerləşdirilmə prosesi sona çatdı!")
-
+with open("student_db.json", "w") as connect:
+    json.dump(data, connect)
 
 # Outputda görmək istədiyiniz əmrlərin verilməsi:
 command = input('''Həyata keçirmək istədiyiniz funksionallığa uyğun rəqəmi daxil edin:
